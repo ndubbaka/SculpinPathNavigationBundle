@@ -1,15 +1,15 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle;
+namespace Tn\Bundle\PathNavigationBundle;
 
 use Sculpin\Core\DataProvider\DataProviderInterface;
 
 /**
- * DateNavigationProvider
+ * PathNavigationProvider
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
-class DateNavigationProvider implements DataProviderInterface
+class PathNavigationProvider implements DataProviderInterface
 {
     /**
      * @var \Sculpin\Core\DataProvider\DataProviderInterface

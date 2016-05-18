@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle;
+namespace Tn\Bundle\PathNavigationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -9,6 +9,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
-class JbDateNavigationBundle extends Bundle
+class TnPathNavigationBundle extends Bundle
 {
 }

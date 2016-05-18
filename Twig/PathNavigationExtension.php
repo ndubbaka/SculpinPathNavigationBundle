@@ -1,15 +1,15 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle\Twig;
+namespace Tn\Bundle\PathNavigationBundle\Twig;
 
 use Symfony\Component\DependencyInjection\Container;
 
 /**
- * Description of DateNavigationExtension
+ * Description of PathNavigationExtension
  *
  * @author jobou
  */
-class DateNavigationExtension extends \Twig_Extension
+class PathNavigationExtension extends \Twig_Extension
 {
     /**
      * @var \Symfony\Component\DependencyInjection\Container
@@ -24,7 +24,7 @@ class DateNavigationExtension extends \Twig_Extension
     /**
      * Constructor
      *
-     * @param \Jb\Bundle\DateNavigationBundle\DateNavigationProvider $container
+     * @param \Tn\Bundle\PathNavigationBundle\PathNavigationProvider $container
      */
     public function __construct(Container $container)
     {
@@ -50,10 +50,10 @@ class DateNavigationExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFunction(
-                'date_navigation',
+                'path_navigation',
                 array(
                     $this,
-                    'renderDateNavigation'
+                    'renderPathNavigation'
                 ),
                 array(
                     'is_safe' => array('html')
@@ -70,12 +70,12 @@ class DateNavigationExtension extends \Twig_Extension
      *
      * @return string
      */
-    public function renderDateNavigation($page, $template = 'date_navigation.html')
+    public function renderPathNavigation($page, $template = 'path_navigation.html')
     {
         return $this->environment->render($template, array(
-            'dates_posts' => $this->container->get('jb_sculpin.date_navigation.data_provider')->provideData(),
+            'dates_posts' => $this->container->get('tn_sculpin.path_navigation.data_provider')->provideData(),
             'page' => $page,
-            'permalink_factory' => $this->container->get('jb_sculpin.date_navigation.permalink_factory'),
+            'permalink_factory' => $this->container->get('tn_sculpin.path_navigation.permalink_factory'),
             'current_date' => new \DateTime()
         ));
     }
@@ -85,6 +85,6 @@ class DateNavigationExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'jb_date_navigation';
+        return 'tn_path_navigation';
     }
 }

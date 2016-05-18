@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Tag Archive
-generator: [jb_date_navigation, pagination]
+generator: [tn_path_navigation, pagination]
 pagination:
     max_per_page: 3
-    provider: page.date_posts
+    provider: page.path_posts
 ---
 
 {% for post in page.pagination.items %}

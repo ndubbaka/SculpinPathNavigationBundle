@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle\DependencyInjection;
+namespace Tn\Bundle\PathNavigationBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
-class JbDateNavigationExtension extends Extension
+class TnPathNavigationExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -25,7 +25,7 @@ class JbDateNavigationExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->setParameter('jb_sculpin.date_navigation.permalink.mask_year', $config['permalink_year']);
-        $container->setParameter('jb_sculpin.date_navigation.permalink.mask_month', $config['permalink_month']);
+        $container->setParameter('tn_sculpin.path_navigation.permalink.mask_year', $config['permalink_year']);
+        $container->setParameter('tn_sculpin.path_navigation.permalink.mask_month', $config['permalink_month']);
     }
 }

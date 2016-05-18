@@ -1,4 +1,4 @@
-SculpinDateNavigationBundle
+SculpinPathNavigationBundle
 ===========================
 
 Generate date navigation block (with pages) in Sculpin :
@@ -30,15 +30,15 @@ class SculpinKernel extends \Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKer
     protected function getAdditionalSculpinBundles()
     {
         return array(
-            'Jb\Bundle\DateNavigationBundle\JbDateNavigationBundle'
+            'Tn\Bundle\PathNavigationBundle\TnPathNavigationBundle'
         );
     }
 }
 ```
 
 Then you need to add the date page html and the date navigation block html to your project :
-* Copy the Resources/html/include/date_navigation.html file in the _includes folder of your source
-* Copy the Resources/html/page/date.html file in the blog folder of your source (or any other html folder you use). For information, a date_paginated.html template is available for paginated date page.
+* Copy the Resources/html/include/path_navigation.html file in the _includes folder of your source
+* Copy the Resources/html/page/date.html file in the blog folder of your source (or any other html folder you use). For information, a path_paginated.html template is available for paginated date page.
 
 Usage
 -----
@@ -46,7 +46,7 @@ Usage
 In a template, you can now call the following twig function :
 
 ``` twig
-{{ date_navigation(page) }}
+{{ path_navigation(page) }}
 ```
 
 It will generate the date navigation html.
@@ -61,13 +61,13 @@ Configuration
 -------------
 
 ``` yml
-jb_date_navigation:
+tn_path_navigation:
     permalink_year: /:year/index.html
     permalink_month: /:year/:month/index.html
 ```
 
-* jb_date_navigation.permalink_year : the url mask for the date year page
-* jb_date_navigation.permalink_month : the url mask for the date month page
+* tn_path_navigation.permalink_year : the url mask for the date year page
+* tn_path_navigation.permalink_month : the url mask for the date month page
 
 License
 -------

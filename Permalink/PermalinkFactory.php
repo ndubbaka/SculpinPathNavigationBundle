@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle\Permalink;
+namespace Tn\Bundle\PathNavigationBundle\Permalink;
 
 /**
  * PermalinkFactory

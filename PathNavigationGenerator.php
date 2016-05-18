@@ -1,18 +1,18 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle;
+namespace Tn\Bundle\PathNavigationBundle;
 
 use Sculpin\Core\Generator\GeneratorInterface;
 use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\DataProvider\DataProviderInterface;
-use Jb\Bundle\DateNavigationBundle\Permalink\PermalinkFactory;
+use Tn\Bundle\PathNavigationBundle\Permalink\PermalinkFactory;
 
 /**
- * DateNavigationGenerator
+ * PathNavigationGenerator
  *
  * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
-class DateNavigationGenerator implements GeneratorInterface
+class PathNavigationGenerator implements GeneratorInterface
 {
     /**
      * @var \Sculpin\Core\DataProvider\DataProviderInterface
@@ -21,12 +21,12 @@ class DateNavigationGenerator implements GeneratorInterface
 
     /**
      *
-     * @var \Jb\Bundle\DateNavigationBundle\DateNavigationProvider
+     * @var \Tn\Bundle\PathNavigationBundle\PathNavigationProvider
      */
-    private $dateNavigationProvider;
+    private $PathNavigationProvider;
 
     /**
-     * @var \Jb\Bundle\DateNavigationBundle\Permalink\PermalinkFactory
+     * @var \Tn\Bundle\PathNavigationBundle\Permalink\PermalinkFactory
      */
     private $permalinkFactory;
 
@@ -34,15 +34,15 @@ class DateNavigationGenerator implements GeneratorInterface
      * Constructor
      *
      * @param \Sculpin\Core\DataProvider\DataProviderInterface $dataProviderManager
-     * @param \Jb\Bundle\DateNavigationBundle\DateNavigationProvider $dateNavigationProvider
+     * @param \Tn\Bundle\PathNavigationBundle\PathNavigationProvider $PathNavigationProvider
      */
     public function __construct(
         DataProviderInterface $dataProviderManager,
-        DateNavigationProvider $dateNavigationProvider,
+        PathNavigationProvider $PathNavigationProvider,
         PermalinkFactory $permalinkFactory
     ) {
         $this->dataProvider = $dataProviderManager;
-        $this->dateNavigationProvider = $dateNavigationProvider;
+        $this->PathNavigationProvider = $PathNavigationProvider;
         $this->permalinkFactory = $permalinkFactory;
     }
 
@@ -55,7 +55,7 @@ class DateNavigationGenerator implements GeneratorInterface
         $generatedMonths = array();
         $generatedSources = array();
 
-        $datedPostData = $this->dateNavigationProvider->provideData();
+        $datedPostData = $this->PathNavigationProvider->provideData();
 
         foreach ($this->dataProvider->provideData() as $post) {
             $date = \DateTime::createFromFormat('U', 0);
@@ -76,7 +76,7 @@ class DateNavigationGenerator implements GeneratorInterface
             $monthGeneratedSource->data()->set('permalink', $this->permalinkFactory->getMonth($year, $month));
             $monthGeneratedSource->data()->set('year', $year);
             $monthGeneratedSource->data()->set('month', $month);
-            $monthGeneratedSource->data()->set('date_posts', $datedPostData[$year]['months'][$month]['posts']);
+            $monthGeneratedSource->data()->set('path_posts', $datedPostData[$year]['months'][$month]['posts']);
             $generatedMonths[] = $year.'-'.$month;
             $generatedSources[] = $monthGeneratedSource;
 
@@ -89,7 +89,7 @@ class DateNavigationGenerator implements GeneratorInterface
             );
             $yearGeneratedSource->data()->set('permalink', $this->permalinkFactory->getYear($year));
             $yearGeneratedSource->data()->set('year', $year);
-            $yearGeneratedSource->data()->set('date_posts', $datedPostData[$year]['posts']);
+            $yearGeneratedSource->data()->set('path_posts', $datedPostData[$year]['posts']);
             $generatedYears[] = $year;
             $generatedSources[] = $yearGeneratedSource;
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jb\Bundle\DateNavigationBundle\DependencyInjection;
+namespace Tn\Bundle\PathNavigationBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $rootNode = $treeBuilder->root('jb_date_navigation');
+        $rootNode = $treeBuilder->root('tn_path_navigation');
 
         $rootNode
             ->children()
