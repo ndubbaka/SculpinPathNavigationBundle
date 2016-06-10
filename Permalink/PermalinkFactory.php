@@ -39,6 +39,16 @@ class PermalinkFactory
     {
         return str_replace(':year', $year, $this->maskYear);
     }
+    
+    /**
+     * Get year url
+     *
+     * @param string $year
+     */
+    public function getPath($year)
+    {
+      return str_replace(':year', $year, $this->maskYear);
+    }
 
     /**
      * Get year url

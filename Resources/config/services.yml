@@ -8,7 +8,8 @@ services:
     tn_sculpin.path_navigation.generator:
         class: %tn_sculpin.path_navigation.generator.class%
         arguments:
-            - @sculpin_content_types.types.posts.data_provider
+            - @sculpin_content_types.types.videos.data_provider
+            - @sculpin_content_types.types.articles.data_provider
             - @tn_sculpin.path_navigation.data_provider
             - @tn_sculpin.path_navigation.permalink_factory
         tags:
@@ -17,7 +18,8 @@ services:
     tn_sculpin.path_navigation.data_provider:
         class: %tn_sculpin.path_navigation.data_provider.class%
         arguments:
-            - @sculpin_content_types.types.posts.data_provider
+            - @sculpin_content_types.types.videos.data_provider
+            - @sculpin_content_types.types.articles.data_provider
         tags:
             - { name: sculpin.data_provider, alias: tn_posts_dates }
 
