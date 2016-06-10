@@ -63,8 +63,9 @@ class PathNavigationGenerator implements GeneratorInterface
         //ladybug_dump($post_relative_url);
         $post_relative_url_array = explode('/', $post_relative_url);
         $length = count($post_relative_url_array);
-        $post_relative_url_array = array_splice($post_relative_url_array, 1, $length-2);
-        for($i = 1; $i <= count($post_relative_url_array); $i++) {
+        // 2 to account preceeding path: open-curricula-files/_videos in sculpin_kernel.yml
+        $post_relative_url_array = array_splice($post_relative_url_array, 2, $length-3);
+        for($i = 2; $i <= $length; $i++) {
           $clone_post_relative_url_array = $post_relative_url_array;
           $spliced_arr = array_splice($clone_post_relative_url_array, 0, $i);
           $spliced_relative_url = implode('/', $spliced_arr);
