@@ -60,7 +60,7 @@ class PathNavigationGenerator implements GeneratorInterface
         $permalink = $sourcePermalinkFactory->create($post);
         $post_relative_url = $permalink->relativeUrlPath();
         $post_relative_url = trim($post_relative_url, '/');
-        //ladybug_dump($post_relative_url);
+
         $post_relative_url_array = explode('/', $post_relative_url);
         $length = count($post_relative_url_array);
         // 2 to account preceeding path: open-curricula-files/_videos in sculpin_kernel.yml
@@ -82,6 +82,7 @@ class PathNavigationGenerator implements GeneratorInterface
             $clone_datedPostData = $clone_datedPostData[$directory_name];
           }
           $pathGeneratedSource->data()->set('path_posts', $clone_datedPostData['posts']);
+          $pathGeneratedSource->data()->set('api_posts', $clone_datedPostData['apis']);
           //$generatedPaths[] = "api/v1/categories/$spliced_relative_url/";
           $generatedSources[] = $pathGeneratedSource;
         }

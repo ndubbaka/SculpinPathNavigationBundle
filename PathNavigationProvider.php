@@ -54,6 +54,17 @@ class PathNavigationProvider implements DataProviderInterface
           $spliced_arr = array_splice($clone_post_relative_url_array, 0, $i);
           $spliced_relative_url = implode('/', $spliced_arr);
           $arr[$spliced_relative_url]['posts'][$post_relative_url] = $post;
+          $arr[$spliced_relative_url]['apis']['items'][$post_relative_url] = array(
+              "title" => $post->title(),
+              "url" => $post_relative_url,
+              "content" => $post->content(),
+              "tags" => $post->data()->get('tags'),
+          );
+          if($content_type == "videos"){
+            $arr[$spliced_relative_url]['apis']['items'][$post_relative_url]["youtube_id"] = $post->data()->get('youtube_id');
+          }elseif($content_type == "articles"){
+            $arr[$spliced_relative_url]['apis']['items'][$post_relative_url]["article_ref"] = $post->data()->get('article_ref');
+          }
           $all_paths[$spliced_relative_url][] = $spliced_relative_url;
         }
         foreach ($arr as $key=>$val) {
@@ -100,7 +111,7 @@ class PathNavigationProvider implements DataProviderInterface
         
         
         
-        ladybug_dump($data);
+        //ladybug_dump($data);
         foreach ($all_paths as $key=>$val) {
           $r = & $hierarchical_paths;
           foreach (explode("/", $key) as $key) {
