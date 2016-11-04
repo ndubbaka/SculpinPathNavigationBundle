@@ -1,5 +1,5 @@
 {
-    "name": "technikh/sculpin-path-navigation-bundle",
+    "name": "technikh/sculpin-path-navigation-bundle-v1",
     "type": "sculpin-bundle",
     "description": "Generate path navigation block (with pages) in Sculpin",
     "keywords": ["sculpin", "php", "Bundle", "path", "navigation"],
